@@ -26,25 +26,39 @@ then
 fi
 
 done
-echo "array" ${array[@]}
+echo "array of prime numbers are:" ${array[@]}
 
 }
 
+alternateprimenumbers ( ) {
+counter=0
+echo "alternate prime numbers are:"
+
+for (( i=0; i<$((${#array[@]}+1)); i+=2 ))
+do
+        alternateprime[counter]=${array[$i]}
+	counter=$(($counter+1))
+done
+echo ${alternateprime[@]}
+reversenumber
+}
+
+
 reversenumber ( ) {
 echo " reverse order of numbers are :"
-for (( i=$((${#array[@]}+1)); i>=0; i-- ))
+for (( i=$((${#alternateprime[@]}+1)); i>=0; i-- ))
 do
-	echo ${array[$i]}
+	echo ${alternateprime[$i]}
 done
 
 }
 
-#first 100 prime numbers in reverse order
+#first 50 alternate prime numbers in reverse order
 
 main ( ) {
-echo " first 100 prime numbers are"
-checkprime 100
-reversenumber
+echo " first 50 alternate prime numbers are"
+checkprime 50
+alternateprimenumbers
 }
 
 main
