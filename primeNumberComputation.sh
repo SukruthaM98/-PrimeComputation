@@ -53,12 +53,27 @@ done
 
 }
 
-#first 50 alternate prime numbers in reverse order
+checkunitsplace ( ) {
+echo " prime numbers containing one in its unit place are :"
+variable=0
+for values in ${array[@]}
+do
+	variable=$(( $values%10 ))
+
+        if [ $variable -eq 1 ]
+        then
+        	echo $values
+        fi
+done
+
+}
+
+#first 100 prime numbers having 1 in its units place
 
 main ( ) {
-echo " first 50 alternate prime numbers are"
-checkprime 50
-alternateprimenumbers
+echo " first 100 prime numbers are"
+checkprime 100
+checkunitsplace
 }
 
 main
