@@ -3,7 +3,7 @@ echo " welcome to primenumber computation program"
 
 checkprime ( ) {
 
-for (( i=2; i<=$(($1+1)); i++ ))
+for (( i=700; i<=$(($1+1)); i++ ))
 do
 flag=0
 	for (( j=2; j<$i; j++ ))
@@ -67,9 +67,9 @@ reversenumber
 
 reversenumber ( ) {
 echo " reverse order of numbers are :"
-for (( i=$((${#alternateprime[@]}+1)); i>=0; i-- ))
+for (( i=$((${#array[@]}+1)); i>=0; i-- ))
 do
-	echo ${alternateprime[$i]}
+	echo ${array[$i]}
 done
 
 }
@@ -89,12 +89,12 @@ done
 
 }
 
-#prime numbers between 1 to 200 having palindrome numbers
+#prime numbers between 700 to 900 in reverse order
 
 main ( ) {
-echo " prime numbers between 1 and 200 are"
-checkprime 200
-findpalindrome
+echo " prime numbers between 700 and 900 are"
+checkprime 900
+reversenumber
 }
 
 main
